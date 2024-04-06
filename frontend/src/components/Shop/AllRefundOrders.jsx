@@ -74,13 +74,16 @@ const AllRefundOrders = () => {
 
   refundOrders &&
   refundOrders.forEach((item) => {
-      row.push({
-        id: item._id,
-        itemsQty: item.cart.length,
-        total: "US$ " + item.totalPrice,
-        status: item.status,
-      });
+    const exchangeRate = 75; // Assuming 1 US dollar = 75 Indian rupees
+    const totalPriceInRupees = exchangeRate * item.totalPrice;
+    row.push({
+      id: item._id,
+      itemsQty: item.cart.length,
+      total: "₹ " + totalPriceInRupees,
+      status: item.status,
     });
+  });
+  
 
   return (
     <>

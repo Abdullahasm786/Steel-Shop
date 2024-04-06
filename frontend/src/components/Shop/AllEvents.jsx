@@ -99,14 +99,17 @@ const AllEvents = () => {
 
   events &&
   events.forEach((item) => {
-      row.push({
-        id: item._id,
-        name: item.name,
-        price: "US$ " + item.discountPrice,
-        Stock: item.stock,
-        sold: item.sold_out,
-      });
+    const exchangeRate = 75; // Assuming 1 US dollar = 75 Indian rupees
+    const priceInRupees = exchangeRate * item.discountPrice;
+    row.push({
+      id: item._id,
+      name: item.name,
+      price: "₹ " + priceInRupees,
+      Stock: item.stock,
+      sold: item.sold_out,
     });
+  });
+  
 
   return (
     <>

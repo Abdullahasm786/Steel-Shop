@@ -56,15 +56,19 @@ const AdminDashboardOrders = () => {
 
   const row = [];
   adminOrders &&
-    adminOrders.forEach((item) => {
-      row.push({
-        id: item._id,
-        itemsQty: item?.cart?.reduce((acc, item) => acc + item.qty, 0),
-        total: item?.totalPrice + " $",
-        status: item?.status,
-        createdAt: item?.createdAt.slice(0,10),
-      });
+  adminOrders.forEach((item) => {
+    const exchangeRate = 75; // Assuming 1 US dollar = 75 Indian rupees
+    const totalPriceInRupees = exchangeRate * item.totalPrice;
+    row.push({
+      id: item._id,
+      itemsQty: item?.cart?.reduce((acc, item) => acc + item.qty, 0),
+      total: "₹ " + totalPriceInRupees,
+      status: item?.status,
+      createdAt: item?.createdAt.slice(0, 10),
     });
+  });
+
+  
   return (
     <div>
       <AdminHeader />
