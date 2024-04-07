@@ -17,6 +17,7 @@
     "country-state-city": "^3.1.2",
     "js-cookie": "^3.0.1",
     "react": "^18.2.0",
+    "react-data-export": "^0.6.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-lottie": "^1.2.3",
@@ -28,8 +29,11 @@
     "redux-thunk": "^2.4.2",
     "redux-toolkit": "^1.1.2",
     "socket.io-client": "^4.6.1",
+    "source-map-loader": "^5.0.0",
+    "tempa-xlsx": "^0.8.20",
     "timeago.js": "^4.0.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5"
   },
   "scripts": {
     "start": "react-scripts start",

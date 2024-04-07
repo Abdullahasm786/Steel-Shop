@@ -67,6 +67,47 @@ router.get(
     }
   })
 );
+router.post(
+  "/create-order",
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const { cart, shippingAddress, user, totalPrice, paymentInfo } = req.body;
+
+      const order = await Order.create({
+        cart,
+        shippingAddress,
+        user,
+        totalPrice,
+        paymentInfo,
+      });
+
+      res.status(201).json({
+        success: true,
+        order,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+  })
+);
+
+// Get all orders
+router.get(
+  "/get-all-orders",
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const orders = await Order.find().sort({ createdAt: -1 });
+
+      res.status(200).json({
+        success: true,
+        orders,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+  })
+);
+
 
 // get all orders of seller
 router.get(
