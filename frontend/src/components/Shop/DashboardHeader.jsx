@@ -14,9 +14,8 @@ const DashboardHeader = () => {
         <Link to="/dashboard">
           <img
             src={logo}
-            className="w-[60px] h-[60px] rounded-full object-cover border-[2px] border-[#3ad132]"
+            className="w-[150px] h-[150px] rounded-full object-cover border-[3px] border-[#3ad132]"
             alt="profile"
-            
           />
         </Link>
       </div>
